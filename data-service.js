@@ -145,11 +145,15 @@ module.exports.updateEmployee = function(employeeData){
         for(const attr in employeeData){
             if(attr == "") employeeData[attr] = null;
         }
-        Employee.update(employeeData)
+        Employee.update(employeeData, { where: { employeeNum: employeeData.employeeNum}})
         .then(() =>{
+            console.log('employee updated')
             resolve();
         })
-        .catch(() => reject("unable to update employee"));
+        .catch((err) => {
+            console.error(err);
+            reject("unable to update employee")
+        });
     });
 }
 
@@ -169,9 +173,12 @@ module.exports.updateDepartment = function(departmentData){
         for(const attr in departmentData){
             if(attr == "") departmentData[attr] = null;
         };
-        Department.update(departmentData)
+        Department.update(departmentData, {where: { departmentId: departmentData.departmentId}})
         .then(() => resolve())
-        .catch(() => reject("unable to update department")); 
+        .catch((err) => {
+            console.error(err);
+            reject("unable to update department");
+        }); 
     })
 }
 
