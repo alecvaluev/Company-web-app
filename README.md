@@ -1,4 +1,4 @@
-# Company-web-app
+# Company-api-app
 The web application built to demonstrate functionalities such as:
  - login using encryption of the data
  - multiple routing functionality 
