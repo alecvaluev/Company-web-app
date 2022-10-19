@@ -4,7 +4,7 @@
 * of this assignment has been copied manually or electronically from any other source
 * (including 3rd party web sites) or distributed to other students.
 *
-* Name: Aleksandr Valuev   Student ID: 165445198   Date: 11/29/2021
+* Name: Aleksandr Valuev   Date: 11/29/2021
 *
 * Online (Heroku) Link: https://mighty-harbor-74304.herokuapp.com/
 *
