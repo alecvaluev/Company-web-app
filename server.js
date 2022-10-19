@@ -187,10 +187,11 @@ app.get("/images", ensureLogin, function(req, res){
 
 app.post("/employees/add", ensureLogin, (req, res) =>{
     dataService.addEmployee(req.body)
+    .then(() => res.redirect("/employees"))
     .catch((err)=>{
         res.status(500).send(err);
        });
-    res.redirect("/employees");
+    //res.redirect("/employees");
 });
 
 app.post("/employee/update", ensureLogin, (req, res) => { 
