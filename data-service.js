@@ -23,7 +23,6 @@ var Employee = sequelize.define('Employee', {
     addressCity: Sequelize.STRING,
     addressState: Sequelize.STRING,
     addressPostal: Sequelize.STRING,
-    maritalStatus: Sequelize.STRING,
     isManager: Sequelize.BOOLEAN,
     employeeManagerNum: Sequelize.INTEGER,
     status: Sequelize.STRING,
@@ -56,12 +55,14 @@ module.exports.initialize = function(){
 
 module.exports.getAllEmployees = function(){
     return new Promise(function(resolve, reject){
+        console.log('--here--', Employee.findAll())
         Employee.findAll()
         .then((data) =>{
             resolve(data);
         })
-        .catch(() =>{
-            reject("No results retured");
+        .catch((err) => {
+            console.error(err)
+            reject("No results retured for employees")
         });
     });
 };
@@ -73,7 +74,10 @@ module.exports.getDepartments = function(){
         .then((data) =>{
             resolve(data);
         })
-        .catch(() => reject("No results retured"));
+        .catch(() => {
+            console.error(err);
+            reject("No results retured for departments");
+        });
     });
 };
 
@@ -86,7 +90,6 @@ module.exports.addEmployee = function(employeeData){
         console.log(employeeData)
         Employee.create(employeeData)
         .then(() =>{
-            console.log('---created---')
             resolve();
         })
         .catch(() => reject("unable to create employee"));
