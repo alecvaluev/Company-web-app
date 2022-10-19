@@ -1,6 +1,6 @@
 const Sequelize =  require('sequelize');
-var sequelize = new Sequelize('dcta8c3t2974m0', 'zwynrckdoakmwf', '0bc30c8c79799cf3baa2c1336ff2a91f06b9b23070b97f5552b06847a93d05b6', {
-    host: 'ec2-34-203-182-65.compute-1.amazonaws.com',
+var sequelize = new Sequelize('ddem2l1uuuggql', 'xjujgvrkencfou', '737e47d97e954cc40d503dffb0346f366f09f6a7ddfe65095cff93de0215f591', {
+    host: 'ec2-54-160-35-196.compute-1.amazonaws.com',
     dialect: 'postgres',
     port: 5432,
     dialectOptions:{
@@ -86,6 +86,7 @@ module.exports.addEmployee = function(employeeData){
         console.log(employeeData)
         Employee.create(employeeData)
         .then(() =>{
+            console.log('---created---')
             resolve();
         })
         .catch(() => reject("unable to create employee"));
