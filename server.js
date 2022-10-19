@@ -197,7 +197,7 @@ app.post("/employees/add", ensureLogin, (req, res) =>{
 app.post("/employee/update", ensureLogin, (req, res) => { 
     //console.log(req.body);
     dataService.updateEmployee(req.body)
-        .then(res.redirect("/employees"))
+        .then(() => res.redirect("/employees"))
         .catch((err)=>{
             res.status(500).send(err);
            });;
@@ -219,7 +219,7 @@ app.post("/departments/add", ensureLogin, (req, res) => {
 app.post("/department/update", ensureLogin, (req, res) => { 
     //console.log(req.body);
     dataService.updateDepartment(req.body)
-        .then(res.redirect("/departments"))
+        .then(() => res.redirect("/departments"))
         .catch((err)=>{
             res.status(500).send(err);
            });
